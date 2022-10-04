@@ -2203,6 +2203,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native-dotenv@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@types/react-native-dotenv@npm:0.2.0"
+  checksum: 23d59b8ebd35e8fe693531f9c630f7518cb149c06694c8c35fc3b628ac8e8e26cc602cec9372447873fbbb13bf0c40bbd951ba5306c1b83b169cc3a927cb935f
+  languageName: node
+  linkType: hard
+
 "@types/react-native@npm:^0.70.0":
   version: 0.70.4
   resolution: "@types/react-native@npm:0.70.4"
@@ -2500,6 +2507,7 @@ __metadata:
     "@tsconfig/react-native": ^2.0.2
     "@types/jest": ^26.0.23
     "@types/react-native": ^0.70.0
+    "@types/react-native-dotenv": ^0.2.0
     "@types/react-test-renderer": ^18.0.0
     "@typescript-eslint/eslint-plugin": ^5.37.0
     "@typescript-eslint/parser": ^5.37.0
@@ -2526,6 +2534,7 @@ __metadata:
     prettier: ^2.7.1
     react: 18.1.0
     react-native: 0.70.1
+    react-native-dotenv: ^3.3.1
     react-test-renderer: 18.1.0
     typescript: ^4.8.3
   languageName: unknown
@@ -4258,6 +4267,13 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: d5775790093c234ef4bfd5fbe40884ff7e6c87573e5339432870616331189f7f5d86575c5b5af2dcf0f61172990f4f734d07844b1f23482fff09e3c4bead05ea
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.0":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
   languageName: node
   linkType: hard
 
@@ -9362,6 +9378,15 @@ __metadata:
     jscodeshift: ^0.13.1
     nullthrows: ^1.1.1
   checksum: f02fe72996c0b2fb1f30f87df18c8ba36463058a5c60ac2fceee8b04304ae921f362d683ec27d919b90190ec27e411e926e7ff83e25e7f1d378410dbae577bfa
+  languageName: node
+  linkType: hard
+
+"react-native-dotenv@npm:^3.3.1":
+  version: 3.4.0
+  resolution: "react-native-dotenv@npm:3.4.0"
+  dependencies:
+    dotenv: ^16.0.0
+  checksum: 3bc8ef4fc2acc930b754ff6b7ae5f5abdf38864e717bced7459902c6b3f8262db234001530ee296f40112a5db467635ba249ae64b954ec29ab84dc80c2c47312
   languageName: node
   linkType: hard
 
