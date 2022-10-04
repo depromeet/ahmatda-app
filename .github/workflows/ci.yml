@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+env:
+  CACHED_DEPENDENCY_PATHS: ${{ github.workspace }}/.yarn/unplugged
+  DEFAULT_NODE_VERSION: '16'
+
+jobs:
+  job_continuous_integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current commit
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.DEFAULT_NODE_VERSION }}
+
+      - name: Compute dependency cache key
+        id: compute_lockfile_hash
+        run: echo "::set-output name=hash::${{ hashFiles('yarn.lock') }}"
+
+      - name: Check dependency cache
+        uses: actions/cache@v3
+        id: cache_dependencies
+        with:
+          path: ${{ env.CACHED_DEPENDENCY_PATHS }}
+          key: ${{ steps.compute_lockfile_hash.outputs.hash }}
+
+      - name: Install dependencies
+        if: steps.cache_dependencies.outputs.cache-hit == ''
+        run: yarn install
+
+      - name: Check lint
+        run: yarn lint
+    outputs:
+      dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }
