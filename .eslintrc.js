@@ -39,6 +39,11 @@ module.exports = {
       rules: {},
     },
   ],
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   rules: {
     'prettier/prettier': ['error', { useTabs: false }],
     'import/extensions': [
