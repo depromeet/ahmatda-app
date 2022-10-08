@@ -41,4 +41,4 @@ jobs:
       - name: Check lint
         run: yarn lint
     outputs:
-      dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }
+      dependency_cache_key: ${{ steps.compute_lockfile_hash.outputs.hash }}
