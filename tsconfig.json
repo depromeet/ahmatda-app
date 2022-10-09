@@ -2,13 +2,10 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
-    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
-    "baseUrl": "./src",
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@components/*": ["components/*"],
-      "@screens/*": ["screens/*"],
-      "@assets/*": ["assets/*"],
-    },
+      "@/*": ["src/*"]
+    }
   }
 }
