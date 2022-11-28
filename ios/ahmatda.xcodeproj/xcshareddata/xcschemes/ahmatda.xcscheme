@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Team3App.app"
-               BlueprintName = "Team3App"
-               ReferencedContainer = "container:Team3App.xcodeproj">
+               BuildableName = "ahmatda.app"
+               BlueprintName = "ahmatda"
+               ReferencedContainer = "container:ahmatda.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "Team3AppTests.xctest"
-               BlueprintName = "Team3AppTests"
-               ReferencedContainer = "container:Team3App.xcodeproj">
+               BuildableName = "ahmatdaTests.xctest"
+               BlueprintName = "ahmatdaTests"
+               ReferencedContainer = "container:ahmatda.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Team3App.app"
-            BlueprintName = "Team3App"
-            ReferencedContainer = "container:Team3App.xcodeproj">
+            BuildableName = "ahmatda.app"
+            BlueprintName = "ahmatda"
+            ReferencedContainer = "container:ahmatda.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Team3App.app"
-            BlueprintName = "Team3App"
-            ReferencedContainer = "container:Team3App.xcodeproj">
+            BuildableName = "ahmatda.app"
+            BlueprintName = "ahmatda"
+            ReferencedContainer = "container:ahmatda.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
