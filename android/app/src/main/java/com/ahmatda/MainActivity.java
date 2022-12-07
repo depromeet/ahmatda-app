@@ -1,4 +1,4 @@
-package com.team3app;
+package com.ahmatda;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
