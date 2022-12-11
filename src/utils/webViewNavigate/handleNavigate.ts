@@ -1,7 +1,7 @@
 import { Linking, Platform } from 'react-native';
 import { WebViewNavigation } from 'react-native-webview';
 
-import BASE_URL from '@/constant/webView';
+import BASE_URL from '@/constants/webView';
 
 const handleNavigate = (e: WebViewNavigation) => {
   return handleExternalLink(e);

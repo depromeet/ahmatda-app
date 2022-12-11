@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-import BASE_URL from '@/constant/webView';
+import BASE_URL from '@/constants/webView';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
 const App = () => {
