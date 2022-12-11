@@ -3,9 +3,9 @@ import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { WebView } from 'react-native-webview';
 
+import BASE_URL from '@/constant/webView';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
-const BASE_URL = 'https://12-team3-web.pages.dev/';
 const App = () => {
   return (
     <>
