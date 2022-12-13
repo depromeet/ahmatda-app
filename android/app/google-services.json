@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "641617944597",
+    "project_id": "ahmatda-bb816",
+    "storage_bucket": "ahmatda-bb816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641617944597:android:39f4df8365d72fd16cae1c",
+        "android_client_info": {
+          "package_name": "com.ahmatda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641617944597-srj6r0tgneoblplkunqqo4gfch0brt5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP00aoJYgpkraSJDtItq6aAOvL4NRDqgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641617944597-srj6r0tgneoblplkunqqo4gfch0brt5a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "641617944597-pfarb5hab3qjgc7fjq72phaasmgiu3qh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ahmatda"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
