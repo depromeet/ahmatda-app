@@ -1,9 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useEffect, useRef } from 'react';
 import { Alert, SafeAreaView, StatusBar } from 'react-native';
-import { getUniqueId } from 'react-native-device-info';
 import { WebView } from 'react-native-webview';
-import messaging from '@react-native-firebase/messaging';
+import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
@@ -24,7 +23,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = messaging().onMessage(async ({ notification }) => {
+    const unsubscribe = messaging().onMessage(async ({ notification }: FirebaseMessagingTypes.RemoteMessage) => {
       Alert.alert(notification?.title ?? '', notification?.body);
     });
 
