@@ -1,21 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Alert, SafeAreaView, StatusBar } from 'react-native';
 import { getUniqueId } from 'react-native-device-info';
 import { WebView } from 'react-native-webview';
 import messaging from '@react-native-firebase/messaging';
 
-const BASE_URL = 'https://12-team3-web.pages.dev/';
-const App = () => {
-  useEffect(() => {
-    const getDeviceId = async () => {
-      const id = await getUniqueId();
-      // eslint-disable-next-line no-console
-      console.log(id);
-    };
+import BASE_URL from '@/constants/webView';
+import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
+import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
-    getDeviceId();
-  }, []);
+const App = () => {
+  const webViewRef = useRef<WebView | null>(null);
+
+  useAndroidBackButton(webViewRef);
 
   useEffect(() => {
     const getToken = async () => {
@@ -38,7 +35,15 @@ const App = () => {
     <>
       <StatusBar />
       <SafeAreaView style={{ flex: 1 }}>
-        <WebView source={{ uri: BASE_URL }} />
+        <WebView
+          ref={(ref) => {
+            if (!ref) return;
+            webViewRef.current = ref;
+          }}
+          source={{ uri: BASE_URL }}
+          onNavigationStateChange={handleNavigate}
+          onShouldStartLoadWithRequest={handleNavigate}
+        />
       </SafeAreaView>
     </>
   );
