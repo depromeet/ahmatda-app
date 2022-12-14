@@ -1,5 +1,6 @@
 #import <Firebase.h>
 #import "AppDelegate.h"
+#import "RNFBMessagingModule.h"
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>

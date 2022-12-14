@@ -6,6 +6,7 @@ import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messag
 
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
+import { requestUserPermission } from '@/utils/firebase/messaging';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    requestUserPermission();
+
     const unsubscribe = messaging().onMessage(async ({ notification }: FirebaseMessagingTypes.RemoteMessage) => {
       Alert.alert(notification?.title ?? '', notification?.body);
     });
