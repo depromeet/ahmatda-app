@@ -43,6 +43,7 @@ const App = () => {
             webViewRef.current = ref;
           }}
           source={{ uri: BASE_URL }}
+          bounces={false}
           onNavigationStateChange={handleNavigate}
           onShouldStartLoadWithRequest={handleNavigate}
         />
