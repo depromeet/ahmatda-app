@@ -6,6 +6,7 @@ import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messag
 
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
+import theme from '@/styles/theme';
 import { requestUserPermission } from '@/utils/firebase/messaging';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
@@ -36,7 +37,8 @@ const App = () => {
   return (
     <>
       <StatusBar />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 0, backgroundColor: theme.colors.gray1 }} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.white }}>
         <WebView
           ref={(ref) => {
             if (!ref) return;
