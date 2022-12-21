@@ -6,6 +6,7 @@ import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messag
 
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
+import useSendFCMToken from '@/hooks/pushAlarm/useSendFCMToken';
 import { requestUserPermission } from '@/utils/firebase/messaging';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
@@ -13,6 +14,7 @@ const App = () => {
   const webViewRef = useRef<WebView | null>(null);
 
   useAndroidBackButton(webViewRef);
+  useSendFCMToken(webViewRef);
 
   useEffect(() => {
     const getToken = async () => {
