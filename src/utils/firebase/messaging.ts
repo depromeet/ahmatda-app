@@ -1,6 +1,9 @@
+import { RefObject } from 'react';
+import WebView from 'react-native-webview';
 import messaging from '@react-native-firebase/messaging';
 
-// eslint-disable-next-line import/prefer-default-export
+import stringifiedPostMessageObject from '../bridge/stringifiedPostMessageObject';
+
 export async function requestUserPermission() {
   const authStatus = await messaging().requestPermission();
   const enabled =
@@ -9,4 +12,9 @@ export async function requestUserPermission() {
   if (enabled) {
     console.log('Authorization status:', authStatus);
   }
+}
+
+export async function sendFCMTokenToWebView(webViewRef: RefObject<WebView>) {
+  const token = await messaging().getToken();
+  webViewRef.current?.postMessage(stringifiedPostMessageObject({ type: 'FCM_TOKEN', data: token }));
 }

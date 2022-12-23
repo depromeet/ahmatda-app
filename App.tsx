@@ -6,22 +6,17 @@ import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messag
 
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
-import { requestUserPermission } from '@/utils/firebase/messaging';
+// import useSendFCMToken from '@/hooks/pushAlarm/useSendFCMToken';
+import { requestUserPermission, sendFCMTokenToWebView } from '@/utils/firebase/messaging';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
 const App = () => {
   const webViewRef = useRef<WebView | null>(null);
-
   useAndroidBackButton(webViewRef);
 
-  useEffect(() => {
-    const getToken = async () => {
-      const token = await messaging().getToken();
-      // eslint-disable-next-line no-console
-      console.log(token);
-    };
-    getToken();
-  }, []);
+  const onWebViewLoad = async () => {
+    sendFCMTokenToWebView(webViewRef);
+  };
 
   useEffect(() => {
     requestUserPermission();
@@ -46,6 +41,7 @@ const App = () => {
           bounces={false}
           onNavigationStateChange={handleNavigate}
           onShouldStartLoadWithRequest={handleNavigate}
+          onLoad={onWebViewLoad}
         />
       </SafeAreaView>
     </>
