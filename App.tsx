@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Alert, SafeAreaView, StatusBar } from 'react-native';
 import { WebView } from 'react-native-webview';
 import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 
+import Error from '@/components/Error';
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
 import theme from '@/styles/theme';
@@ -12,6 +13,8 @@ import { requestUserPermission, sendFCMTokenToWebView } from '@/utils/firebase/m
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
 
 const App = () => {
+  const { isError, setIsError, onWebViewError } = useAppError();
+
   const webViewRef = useRef<WebView | null>(null);
   useAndroidBackButton(webViewRef);
 
@@ -29,6 +32,17 @@ const App = () => {
     return unsubscribe;
   }, []);
 
+  if (isError) {
+    return (
+      <Error
+        reload={() => {
+          webViewRef.current?.reload();
+          setIsError(false);
+        }}
+      />
+    );
+  }
+
   return (
     <>
       <StatusBar />
@@ -44,6 +58,7 @@ const App = () => {
           onNavigationStateChange={handleNavigate}
           onShouldStartLoadWithRequest={handleNavigate}
           onLoad={onWebViewLoad}
+          onError={onWebViewError}
         />
       </SafeAreaView>
     </>
@@ -51,3 +66,13 @@ const App = () => {
 };
 
 export default App;
+
+const useAppError = () => {
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const onWebViewError = () => {
+    setIsError(true);
+  };
+
+  return { isError, setIsError, onWebViewError };
+};
