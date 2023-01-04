@@ -4,9 +4,8 @@ import { Alert, SafeAreaView, StatusBar } from 'react-native';
 import { WebView, WebViewMessageEvent } from 'react-native-webview';
 import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 
-
-import Error from '@/components/Error';
 import sendAppVersion from '@/bridge/app-version/sendAppVersion';
+import Error from '@/components/Error';
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
 import theme from '@/styles/theme';
