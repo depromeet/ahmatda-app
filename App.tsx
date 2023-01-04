@@ -1,13 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert, SafeAreaView, StatusBar } from 'react-native';
-import { WebView } from 'react-native-webview';
+import { WebView, WebViewMessageEvent } from 'react-native-webview';
 import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 
+
 import Error from '@/components/Error';
+import sendAppVersion from '@/bridge/app-version/sendAppVersion';
 import BASE_URL from '@/constants/webView';
 import useAndroidBackButton from '@/hooks/android/useAndroidBackButton';
 import theme from '@/styles/theme';
+import { LISTENING_MESSAGE_KEY } from '@/utils/bridge/type';
 // import useSendFCMToken from '@/hooks/pushAlarm/useSendFCMToken';
 import { requestUserPermission, sendFCMTokenToWebView } from '@/utils/firebase/messaging';
 import handleNavigate from '@/utils/webViewNavigate/handleNavigate';
@@ -20,6 +23,19 @@ const App = () => {
 
   const onWebViewLoad = async () => {
     sendFCMTokenToWebView(webViewRef);
+  };
+
+  const onMessage = (event: WebViewMessageEvent) => {
+    const data = JSON.parse(event.nativeEvent.data);
+
+    switch (data.type as LISTENING_MESSAGE_KEY) {
+      case 'APP_VERSION':
+        sendAppVersion(webViewRef);
+        break;
+
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
@@ -59,6 +75,7 @@ const App = () => {
           onShouldStartLoadWithRequest={handleNavigate}
           onLoad={onWebViewLoad}
           onError={onWebViewError}
+          onMessage={onMessage}
         />
       </SafeAreaView>
     </>
