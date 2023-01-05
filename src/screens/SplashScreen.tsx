@@ -17,13 +17,14 @@ const SplashScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <AnimatedLottieView
         source={splashLottie}
         autoPlay
         duration={2000}
         loop={false}
         onAnimationFinish={onSplashFinish}
+        style={{ width: 166, height: 166 }}
       />
     </View>
   );
