@@ -73,6 +73,7 @@ const HomeScreen = () => {
           onLoad={onWebViewLoad}
           onError={onWebViewError}
           onMessage={onMessage}
+          onContentProcessDidTerminate={() => webViewRef.current?.reload()}
         />
       </SafeAreaView>
     </>
