@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 
+import StatusBar from '@/components/StatusBar';
 import MainNavigator from '@/navigation/MainNavigator';
 
 const App = () => {
