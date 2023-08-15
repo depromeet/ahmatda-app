@@ -1,3 +1,13 @@
+<br />
+
+<h3 align='center'>
+
+ `디프만 12기 대상 수상작 🎉`
+
+</h3>
+
+<br />
+
 ![아맞다 헤더](https://user-images.githubusercontent.com/26461307/211135223-81d14cf7-bf4e-4bff-9e30-962f9ec062a7.jpg)
 
 <br />
